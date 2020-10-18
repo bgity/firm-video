@@ -18,7 +18,7 @@ const LiveStackChannelScreen = ({navigation}) => {
        {/*  <Stack.Screen name="Home" component={HomeVideoScreen} /> */}
        <Stack.Screen name="Live Channel" component={LiveChannelScreen} options={{
           headerLeft:()=>(
-            <Icon.Button name="ios-menu" size={25} backgroundColor="#4630eb" 
+            <Icon.Button name="ios-menu" size={25} backgroundColor="#4630eb" marginLeft={10}
             onPress={()=>navigation.openDrawer()}></Icon.Button>
           ),
           title: 'LIVE CHANNEL',

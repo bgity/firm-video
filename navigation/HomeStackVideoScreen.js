@@ -16,7 +16,7 @@ const HomeStackVideoScreen = ({navigation}) => {
       <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: '#4630eb'} }}>
         <Stack.Screen name="Home" component={HomeVideoScreen} options={{
           headerLeft:()=>(
-            <Icon.Button name="ios-menu" size={25} backgroundColor="#4630eb" 
+            <Icon.Button name="ios-menu" size={25} backgroundColor="#4630eb" marginLeft={10}
             onPress={()=>navigation.openDrawer()}></Icon.Button>
           ),
           title: 'TCS VIDEO',

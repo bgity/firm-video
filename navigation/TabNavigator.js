@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet, View, SafeAreaView  } from 'react-native';
 //import { NavigationContainer } from '@react-navigation/native';
 //import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 //import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -19,13 +20,17 @@ const TabNavigator = () => {
        tabBarOptions={{
         activeTintColor: 'white',
         inactiveTintColor: 'gray',
+       
         labelStyle: {
-          fontSize: 13,
+          fontSize: 12,
           fontWeight: '700',
           padding:10
         },
-        style: {
+        tabStyle:{
           backgroundColor: '#4630eb',
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
         },
       }} 
     >

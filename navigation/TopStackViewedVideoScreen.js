@@ -19,7 +19,7 @@ const TopStackViewedVideoScreen = ({navigation}) => {
         <Stack.Screen name="Live Channel" component={LiveChannelScreen} /> */}
         <Stack.Screen name="TopViewedVideo" component={TopViewedVideoScreen} options={{
           headerLeft:()=>(
-            <Icon.Button name="ios-menu" size={25} backgroundColor="#4630eb" 
+            <Icon.Button name="ios-menu" size={25} backgroundColor="#4630eb" marginLeft={10}
             onPress={()=>navigation.openDrawer()}></Icon.Button>
           ),
           title: 'TOP VIEWED',

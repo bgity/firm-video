@@ -20,7 +20,7 @@ const VideoStackDetailScreen = ({navigation}) => {
         <Stack.Screen name="TopViewedVideo" component={TopViewedVideoScreen} /> */}
         <Stack.Screen name="VideoDetails" component={VideoDetailScreen} options={{
           headerLeft:()=>(
-            <Icon.Button name="ios-menu" size={25} backgroundColor="#4630eb" 
+            <Icon.Button name="ios-menu" size={25} backgroundColor="#4630eb" marginLeft={10}
             onPress={()=>navigation.openDrawer()}></Icon.Button>
           ),
           title: 'DETAIL SCREEN',
