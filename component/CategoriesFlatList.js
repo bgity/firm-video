@@ -11,8 +11,10 @@ import {
   SafeAreaView,
 } from 'react-native';
 import catDummyData from '../data/catData';
+import { useNavigation } from '@react-navigation/native';
 
 const CategoriesFlatList = () => {
+  const navigation = useNavigation();
   const [dataList, setDataList] = useState([
     {
       title: 'Brazil',
@@ -50,29 +52,33 @@ const CategoriesFlatList = () => {
           data={dataList}
           renderItem={({ item }) => (
             <View style={{ paddingVertical: 20 }}>
-              <Image
-                source={{ uri: item.url }}
-                style={{
-                  width: 150,
-                  height: 250,
-                  borderRadius: 10,
-                  marginRight: 12,
-                }}
-              />
-              <Text
-                style={{
-                  position: 'absolute',
-                  color: 'white',
-                  fontSize: 14,
-                  bottom: 25,
-                  left: 10,
-                }}
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Live Channel')}
               >
-                {item.title}
-              </Text>
+                <Image
+                  source={{ uri: item.url }}
+                  style={{
+                    width: 150,
+                    height: 250,
+                    borderRadius: 10,
+                    marginRight: 12,
+                  }}
+                />
+                <Text
+                  style={{
+                    position: 'absolute',
+                    color: 'white',
+                    fontSize: 14,
+                    bottom: 25,
+                    left: 10,
+                  }}
+                >
+                  {item.title}
+                </Text>
+              </TouchableOpacity>
             </View>
           )}
-          keyExtractor={(item, index) => 'i ' + index}
+          keyExtractor={(item, index) => 'key' + index}
         />
       </View>
     </View>
