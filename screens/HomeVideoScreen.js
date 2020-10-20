@@ -15,7 +15,7 @@ import { dummyData } from '../data/Data';
 
 const HomeVideoScreen = ({ navigation }) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <ScrollView>
         <Carousel data={dummyData} />
         <CategoriesFlatList />

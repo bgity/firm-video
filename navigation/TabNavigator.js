@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, SafeAreaView  } from 'react-native';
-//import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 //import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 //import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -8,41 +8,45 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeStackVideoScreen from './HomeStackVideoScreen';
 import LiveStackChannelScreen from './LiveStackChannelScreen';
 import TopStackViewedVideoScreen from './TopStackViewedVideoScreen';
-import VideoStackDetailScreen from './VideoStackDetailScreen';
+import CategoriesStackScreen from './CategoriesStackScreen';
+import CatagoriesModalStackScreen from './CatagoriesModalStackScreen';
 
 //const Tab = createMaterialBottomTabNavigator();
 const Tab = createBottomTabNavigator();
 
-const TabNavigator = () => {
+const TabNavigator = ({ state, navigation }) => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
-       tabBarOptions={{
+      initialRouteName='Home'
+      tabBarOptions={{
         activeTintColor: 'white',
         inactiveTintColor: 'gray',
-       
+        style: {
+          borderTopWidth: 0,
+          overflow: 'hidden',
+        },
         labelStyle: {
           fontSize: 12,
           fontWeight: '700',
-          padding:10
+          padding: 10,
         },
-        tabStyle:{
+        tabStyle: {
           backgroundColor: '#4630eb',
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
         },
-      }} 
+      }}
     >
       <Tab.Screen
-        name="Home"
+        name='Home'
         component={HomeStackVideoScreen}
         options={{
           tabBarLabel: 'HOME',
-         /*   tabBarIcon: ({ color }) => (
+          /*   tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ), */
-         /*  HomeTab: {
+          /*  HomeTab: {
             screen: HomeStack,
             navigationOptions: {
               tabBarLabel: ({ tintColor }) => (
@@ -62,7 +66,7 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Live Channel"
+        name='Live Channel'
         component={LiveStackChannelScreen}
         options={{
           tabBarLabel: 'LIVE',
@@ -72,21 +76,17 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-         name="VideoDetails"
-        component={VideoStackDetailScreen}
+        name='CatagoriesModal'
+        component={CatagoriesModalStackScreen}
         options={{
           tabBarLabel: 'CATEGORIES',
           labelStyle: {
-           marginLeft:20
+            marginLeft: 20,
           },
-          /* tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
-          ) */
         }}
       />
-       <Tab.Screen
-      
-        name="TopViewedVideo"
+      <Tab.Screen
+        name='TopViewedVideo'
         component={TopStackViewedVideoScreen}
         options={{
           tabBarLabel: 'TOP VIEWED',
@@ -97,6 +97,11 @@ const TabNavigator = () => {
       />
     </Tab.Navigator>
   );
-}
+};
 
 export default TabNavigator;
+const styles = StyleSheet.create({
+  droidSafeArea: {
+    flex: 2,
+  },
+});

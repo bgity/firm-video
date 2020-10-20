@@ -10,22 +10,22 @@ import {
 import CarouselItem from './CarouselItem';
 
 const { width, heigth } = Dimensions.get('window');
-let flatList;
+let listRef;
 
-function infiniteScroll(dataList) {
+infiniteScroll = (dataList) => {
   const numberOfData = dataList.length;
   let scrollValue = 0,
     scrolled = 0;
-  setInterval(function () {
+  setInterval(() => {
     scrolled++;
     if (scrolled < numberOfData) scrollValue = scrollValue + width;
     else {
       scrollValue = 0;
       scrolled = 0;
     }
-    this.flatList.scrollToOffset({ animated: true, offset: scrollValue });
+    this.listRef.scrollToOffset({ animated: true, offset: scrollValue });
   }, 3000);
-}
+};
 
 const Carousel = ({ data }) => {
   const scrollX = new Animated.Value(0);
@@ -41,23 +41,21 @@ const Carousel = ({ data }) => {
       <View>
         <FlatList
           data={data}
-          ref={(flatList) => {
-            this.flatList = flatList;
-          }}
+          ref={(listRef) => (this.listRef = listRef)}
           keyExtractor={(item, index) => 'key' + index}
           horizontal
           pagingEnabled
           scrollEnabled
           snapToAlignment='center'
-          scrollEventThrottle={16}
+          scrollEventThrottle={200}
           decelerationRate={'fast'}
           showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => {
             return <CarouselItem item={item} />;
           }}
           /* onScroll={Animated.event(
-                        [{ nativeEvent: { contentOffset: { x: scrollX } } }]
-                    )} */
+                [{ nativeEvent: { contentOffset: { x: scrollX } } }]
+            )} */
         />
       </View>
     );

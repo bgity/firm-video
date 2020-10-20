@@ -53,7 +53,7 @@ const CategoriesFlatList = () => {
           renderItem={({ item }) => (
             <View style={{ paddingVertical: 20 }}>
               <TouchableOpacity
-                onPress={() => navigation.navigate('Live Channel')}
+                onPress={() => navigation.navigate('VideoDetails')}
               >
                 <Image
                   source={{ uri: item.url }}
